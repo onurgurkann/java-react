@@ -1,1 +1,1 @@
-# java-react
+# Java - React Software Development Camp
