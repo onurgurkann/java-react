@@ -1,0 +1,26 @@
+package softwaredevcamp.javareact.business.concretes;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import softwaredevcamp.javareact.business.abstracts.ProductService;
+import softwaredevcamp.javareact.dataAccess.abstracts.ProductDao;
+import softwaredevcamp.javareact.entities.concretes.Product;
+
+@Service
+public class ProductManager implements ProductService{
+
+	private ProductDao productDao;
+	
+	@Autowired
+	public ProductManager(ProductDao productDao) {
+		super();
+		this.productDao = productDao;
+	}
+
+	@Override
+	public List<Product> getAll() {
+		return this.productDao.findAll();
+	}
+
+}
