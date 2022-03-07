@@ -12,6 +12,7 @@ import softwaredevcamp.javareact.business.abstracts.ProductService;
 import softwaredevcamp.javareact.core.utilities.results.DataResult;
 import softwaredevcamp.javareact.core.utilities.results.Result;
 import softwaredevcamp.javareact.entities.concretes.Product;
+import softwaredevcamp.javareact.entities.dtos.ProductWithCategoryDto;
 
 @RestController
 @RequestMapping("/api/products")
@@ -28,6 +29,11 @@ public class ProductsController {
 	@GetMapping("/getall")
 	public DataResult<List<Product>> getAll(){
 		return this.productService.getAll();
+	}
+	
+	@GetMapping("/getProductWithCategoryDetails")
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+		return this.productService.getProductWithCategoryDetails();
 	}
 	
 	@PostMapping("/add")

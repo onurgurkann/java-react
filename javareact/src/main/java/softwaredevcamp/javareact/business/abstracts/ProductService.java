@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import softwaredevcamp.javareact.core.utilities.results.DataResult;
 import softwaredevcamp.javareact.core.utilities.results.Result;
 import softwaredevcamp.javareact.entities.concretes.Product;
+import softwaredevcamp.javareact.entities.dtos.ProductWithCategoryDto;
 
 public interface ProductService {
 	DataResult<List<Product>> getAll();
@@ -29,5 +30,7 @@ public interface ProductService {
 	DataResult<List<Product>> getByProductNameStartsWith(String productName);
 	
 	DataResult<List<Product>> getByNameAndCategory(String productName, int categoryId);
+	
+	DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails();
 	
 }

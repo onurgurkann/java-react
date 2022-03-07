@@ -13,6 +13,7 @@ import softwaredevcamp.javareact.core.utilities.results.SuccessDataResult;
 import softwaredevcamp.javareact.core.utilities.results.SuccessResult;
 import softwaredevcamp.javareact.dataAccess.abstracts.ProductDao;
 import softwaredevcamp.javareact.entities.concretes.Product;
+import softwaredevcamp.javareact.entities.dtos.ProductWithCategoryDto;
 
 @Service
 public class ProductManager implements ProductService{
@@ -83,6 +84,11 @@ public class ProductManager implements ProductService{
 	public DataResult<List<Product>> getAllSorted() {
 		Sort sort = Sort.by(Sort.Direction.DESC, "productName"); // Sort-org.springframework.data.domain.Sort
 		return new SuccessDataResult<List<Product>>(this.productDao.findAll(sort), "Success");
+	}
+
+	@Override
+	public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+		return new SuccessDataResult<List<ProductWithCategoryDto>>(this.productDao.getProductWithCategoryDetails(),"Data listed");
 	}
 
 }
