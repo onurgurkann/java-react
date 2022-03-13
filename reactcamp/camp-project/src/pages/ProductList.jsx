@@ -8,7 +8,7 @@ export default function ProductList() {
     useEffect(()=>{ // component yüklendiğinde yapılması istenen kod buraya yazılır - sayfa yüklendiğinde bu çalıştırılacak
         let productService = new ProductService()
         productService.getProducts().then(result=>setProducts(result.data.data))
-    })
+    },[])
 
     return (
         <div>
